@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhd6hugxrsx8d"]
+
+[ext_resource type="Script" uid="uid://cwpvf610yima5" path="res://cocotero.gd" id="1_v57rn"]
+[ext_resource type="PackedScene" uid="uid://dlujwc8ix41hk" path="res://characters/coco_bomb.tscn" id="2_1ofky"]
+[ext_resource type="Texture2D" uid="uid://b3mo5hvis8i7o" path="res://characters/cococtero-Sheet.png" id="2_lrjj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ofky"]
+atlas = ExtResource("2_lrjj0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oiyh"]
+atlas = ExtResource("2_lrjj0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no7j4"]
+atlas = ExtResource("2_lrjj0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf86e"]
+atlas = ExtResource("2_lrjj0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ap0jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ofky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oiyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no7j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf86e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xurq"]
+size = Vector2(13, 16)
+
+[node name="cocotero" type="Node2D"]
+script = ExtResource("1_v57rn")
+projectile_scene = ExtResource("2_1ofky")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ap0jx")
+frame_progress = 0.84741515
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_8xurq")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="TimerAttack" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

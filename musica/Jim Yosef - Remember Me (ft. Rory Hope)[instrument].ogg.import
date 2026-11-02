@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://s35r4hekiw4d"
+path="res://.godot/imported/Jim Yosef - Remember Me (ft. Rory Hope)[instrument].ogg-0e6139990bd38320f4575837bcdf7711.oggvorbisstr"
+
+[deps]
+
+source_file="res://musica/Jim Yosef - Remember Me (ft. Rory Hope)[instrument].ogg"
+dest_files=["res://.godot/imported/Jim Yosef - Remember Me (ft. Rory Hope)[instrument].ogg-0e6139990bd38320f4575837bcdf7711.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

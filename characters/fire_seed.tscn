@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://nu32hlro7u10"]
+
+[ext_resource type="Texture2D" uid="uid://fm5e6l6qaj3s" path="res://characters/Proyectil_gira-0001-Sheet.png" id="1_0f5cv"]
+[ext_resource type="Script" uid="uid://dyvfwbxahfeax" path="res://characters/fire_seed.gd" id="1_74lor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f5cv"]
+atlas = ExtResource("1_0f5cv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74lor"]
+atlas = ExtResource("1_0f5cv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2u1i"]
+atlas = ExtResource("1_0f5cv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocigq"]
+atlas = ExtResource("1_0f5cv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xq0nv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f5cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74lor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2u1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocigq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy6os"]
+size = Vector2(12, 6)
+
+[node name="FireSeed" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_74lor")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xq0nv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_fy6os")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=4 uid="uid://c3264avhqm51s"]
+
+[ext_resource type="Script" uid="uid://d0rk4ddg288ce" path="res://zona.gd" id="1_ea768"]
+[ext_resource type="TileSet" uid="uid://p2stxb2yqr1a" path="res://tileset/bloques.tres" id="2_4ridm"]
+[ext_resource type="PackedScene" uid="uid://bh6pe5770i2il" path="res://characters/slime.tscn" id="3_4ridm"]
+[ext_resource type="PackedScene" uid="uid://dad5oedonme1u" path="res://characters/npc_2d.tscn" id="3_lje2p"]
+[ext_resource type="PackedScene" uid="uid://djjiihv23n0nj" path="res://characters/spike.tscn" id="5_asp8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar45h"]
+size = Vector2(20, 382)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ridm"]
+size = Vector2(20, 171)
+
+[node name="zona_1" type="Node2D"]
+script = ExtResource("1_ea768")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Environment"]
+tile_map_data = PackedByteArray("AAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAARAAAAAQAAAAAAAAASAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAUAAAAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAXAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAYAAAAAQABAAAAAAAZAAAAAQABAAAAAAAaAAAAAQABAAAAAAAbAAAAAQABAAAAAAAcAAAAAQABAAAAAAAdAAAAAQABAAAAAAAeAAAAAQABAAAAAAAfAAAAAQABAAAAAAAgAAAAAQABAAAAAAAhAAAAAQABAAAAAAAiAAAAAQABAAAAAAAjAAAAAQABAAAAAAAkAAAAAQABAAAAAAAlAAAAAQABAAAAAAAmAAAAAQABAAAAAAAnAAAAAQABAAAAAAA=")
+tile_set = ExtResource("2_4ridm")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(30, 0)
+rotation = 2.6179938
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="slime" parent="Enemies" instance=ExtResource("3_4ridm")]
+position = Vector2(233, -6)
+hp = 1
+
+[node name="slime2" parent="Enemies" instance=ExtResource("3_4ridm")]
+position = Vector2(283, -8)
+hp = 1
+
+[node name="Spike" parent="Enemies" node_paths=PackedStringArray("reward_npc") instance=ExtResource("5_asp8s")]
+position = Vector2(316, -16)
+rotation = -6.2831855
+max_hp = 1
+reward_npc = NodePath("../../Node2D")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="ExitBlocker" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitBlocker"]
+position = Vector2(394, -118)
+shape = SubResource("RectangleShape2D_ar45h")
+
+[node name="exit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(421, -73)
+shape = SubResource("RectangleShape2D_4ridm")
+
+[node name="Node2D" parent="." instance=ExtResource("3_lje2p")]
+position = Vector2(380, -15)
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

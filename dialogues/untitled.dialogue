@@ -1,0 +1,14 @@
+Hola elige el nuevo jefe
+- jefe_1
+	ok seleccionaste al jefe_1
+- jefe_2
+	ok seleccionaste al jefe_2
+ahora elige la nueva dificultad
+- mas facil
+	ok entonces sera mas facil
+- mas dificil
+	ok entonces ser mas dificil
+- quiero mantenerme asi
+	ok se mantendra todo tal y como esta
+
+=> END

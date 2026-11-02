@@ -1,0 +1,25 @@
+~ start
+
+NPC: Has derrotado al jefe. Buen trabajo.
+
+NPC: Ahora tienes una decisión que tomar.
+
+- Quiero que el próximo camino sea más fácil.
+    $> GameManager.set_easy()
+    => easy
+
+- Quiero que el próximo camino sea más difícil.
+    $> GameManager.set_hard()
+    => hard
+
+
+~ easy
+
+NPC: Entonces tendrás un camino más sencillo.
+=> END
+
+
+~ hard
+
+NPC: Entonces tendrás un camino más peligroso.
+=> END

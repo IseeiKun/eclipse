@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c2nh4pmu37yfs"
+path="res://.godot/imported/BossReward.untitled.dialogue-90df4de87c913b560dc4e64ad0652c25.tres"
+
+[deps]
+
+source_file="res://dialogues/BossReward.untitled.dialogue"
+dest_files=["res://.godot/imported/BossReward.untitled.dialogue-90df4de87c913b560dc4e64ad0652c25.tres"]
+
+[params]
+
+defaults=true

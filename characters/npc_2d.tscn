@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dad5oedonme1u"]
+
+[ext_resource type="Script" uid="uid://bqa4wcejg1e36" path="res://characters/npc_2d.gd" id="1_f50n0"]
+[ext_resource type="Texture2D" uid="uid://cxcokaqa3vntr" path="res://characters/npc.png" id="1_rb4f8"]
+[ext_resource type="Resource" uid="uid://c2nh4pmu37yfs" path="res://dialogues/BossReward.untitled.dialogue" id="2_4ysr8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f50n0")
+dialogue_resource = ExtResource("2_4ysr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rb4f8")
+hframes = 4
+vframes = 2
